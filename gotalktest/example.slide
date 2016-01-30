@@ -1,13 +1,14 @@
 Golang test tutorial
 Golang testing using Present
 21 Jan 2016
-
+Test 2
 
 * Test Formatting
 This should be *Bold*
 
+* Code Examples from subdirectory
+.play demo/hello.go
+
 * Code Examples
 .play hello.go
 
-* Code Examples from subdirectory
-.play demo/hello.go
