@@ -9,3 +9,5 @@ This should be *Bold*
 * Code Examples
 .play hello.go
 
+* Code Examples from subdirectory
+.play demo/hello.go
