@@ -1,0 +1,13 @@
+Golang tutorial for Qiagen
+Quick tour of Golang and using golang as a webapp for searching variant samples
+21 Jan 2016
+
+Paul Schmidt
+Paul.Schmidt@Qiagen.com
+
+* Code Examples
+.play hello.go
+
+* Custom Types
+.play demo/custom_type.go
+
