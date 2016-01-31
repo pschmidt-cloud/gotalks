@@ -11,7 +11,6 @@ func main() {
 	}
 
 	/*sample output
-	/usr/local/go/bin/go run /Users/schmidtp/go/src/test/demo/freeform.go
 		0 2
 		1 4
 		4

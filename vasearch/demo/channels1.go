@@ -23,6 +23,6 @@ func main() {
 	go put(c)
 	go get(c)
 
-	time.Sleep(1 * 1e9)
+	time.Sleep(1 * time.Second)
 	close(c)
 }
