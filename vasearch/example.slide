@@ -15,7 +15,7 @@ Paul.Schmidt@Qiagen.com
 - Version 1.0 released in 2012 by Google [[https://tour.golang.org]] by Rob Pike, Russ Cox, et al
 - Syntax similar to C
 - Strong and easy concurrency support
-- According to Rob Pike it compiles and runs faster than the Python Interpreter starts
+- According to Rob Pike it compiles and runs faster than the Python Interpreter starts. He shows a demo of this in his talk [[https://www.youtube.com/watch?v=uQgWP7zM6mU]] at 15:38 mark [[https://youtu.be/uQgWP7zM6mU?t=938]]
 - Object oriented but no such thing as a class
 
 * Simple Go program
@@ -24,22 +24,11 @@ Paul.Schmidt@Qiagen.com
 .play hello.go
 
 * Functions can return multiple results
+- Can choose to ignore some values for example when iterating through an array with the range function you might choose to ignore the array index
 .play demo/functions_multiple_results.go
 
 #* Statically typed vs dynamically typed reminder
 #.play demo/type_checking.go
-
-* More
-- All necessary runtime components are compiled into the binary. No external dependencies
-- Garbage Collected [[https://golang.org/doc/faq#garbage_collection]]
-- Pointers but no arithmetic make them safe
-- Support for closures
-- Statically typed
-
-* Closure example
-A closure is a function value that can reference variables bound to it outside its body
-In this example each closure is bound to its own *val* variable
-.play demo/closures1.go
 
 * Approach to object oriented programming
 
@@ -54,6 +43,7 @@ In this example each closure is bound to its own *val* variable
 .play demo/methods_value_receiver.go
 
 * Interface example
+There isn't an implements declartion. You implement an interface by implementing its methods
 .play demo/interfaces.go  /START OMIT/,/END OMIT/
 
 #* Method using pass by reference example
@@ -65,6 +55,25 @@ In this example each closure is bound to its own *val* variable
 #* Custom Type example to redefine Abs function on a custom integer
 #.play demo/custom_type.go
 
+* Advanced Topics
+- All necessary runtime components are compiled into the binary. No external dependencies
+- Garbage Collected [[https://golang.org/doc/faq#garbage_collection]] using Escape Analysis
+- Pointers but no arithmetic make them safe
+- Support for closures
+- Statically typed
+
+* Garbage collection using Escape Analysis
+- if a reference to a value escapes the function where it is declared it is put on the heap
+- else it is put on the stack it where it will be freed immediately when the function returns
+- Very detiled explanation at [[http://dave.cheney.net/2014/06/07/five-things-that-make-go-fast]]
+.code demo/escape_analysis.go /START OMIT/,/END OMIT/
+
+* Closure example
+A closure is a function value that can reference variables bound to it outside its body
+In this example each closure is bound to its own *val* variable
+.play demo/closures1.go
+
+
 * Parallelism and Concurrency
 
 - Parallelism - running multiple threads simultaneously.
@@ -75,7 +84,7 @@ In this example each closure is bound to its own *val* variable
 #- Concurrency is not Parallelism (see [[http://blog.golang.org/concurrency-is-not-parallelism]])
 #- Garbage Collection is critical for concurrency
 
-* Concurrency example
+* Crude concurrency example
 .play demo/channels1.go /START OMIT/,/END OMIT/
 
 * Building a webapp with Go
