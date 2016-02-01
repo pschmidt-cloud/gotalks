@@ -1,12 +1,12 @@
 Golang tutorial for Qiagen
-Quick tour of Golang and using it as webapp for searching variant samples
+Quick tour of Golang and using it as a webapp for searching variant samples
 21 Jan 2016
 
 Paul Schmidt
 Paul.Schmidt@Qiagen.com
 
 * Topics covered in this talk
-- Golang lanuage introduction
+- Golang language introduction
 - Golang webapp support
 - Qiagen Variant Sample Search Demo using Golang as a webserver plus 3rd party Elasticsearch client
 - List of Resources
@@ -19,8 +19,11 @@ Paul.Schmidt@Qiagen.com
 - Object oriented but no such thing as a class
 
 * Simple Go program
+- Variable types can declared explicitly using var
+- Or if inside a function can use the short notation and type will be assigned
 .play hello.go
-Functions can return multiple results
+
+* Functions can return multiple results
 .play demo/functions_multiple_results.go
 
 #* Statically typed vs dynamically typed reminder
@@ -44,7 +47,7 @@ In this example each closure is bound to its own *val* variable
 - You define methods on types. Any types can have methods even int, float, string, etc
 - Method is just a function but with a type receiver argument
 - Can pass by reference or by value
-- Functions are values so they can be passed around as arguments
+#- Functions are values so they can be passed around as arguments
 - Supports interfaces and multiple inheritance
 
 * Method example
@@ -63,22 +66,31 @@ In this example each closure is bound to its own *val* variable
 #.play demo/custom_type.go
 
 * Parallelism and Concurrency
-From Russ Cox's talk
 
-- Parallelism - running multiple things simultaneously. Go subroutines aka goroutine
+- Parallelism - running multiple threads simultaneously.
+- Goroutine is a lightweight thread
 - Concurrency - coordination of parallel computations. Channels
-- Garbage Collection is critical for concurrency
+- Channels block until the other side is ready allowing goroutines to synchronize without locks or condition variables.
+- Can still use mutexes to synchronize access to shared data if needed
+#- Concurrency is not Parallelism (see [[http://blog.golang.org/concurrency-is-not-parallelism]])
+#- Garbage Collection is critical for concurrency
 
 * Concurrency example
-.play demo/channels1.go
+.play demo/channels1.go /START OMIT/,/END OMIT/
 
-* Webserver is built into the language
+* Building a webapp with Go
+- A simple webapp using the net/http package
+- Serving static files with 3rd party gorilla.mux package
+- Variant Sample search webapp using gorilla, dependency injection and olivere elasticsearch client
+
+* Simple webapp using net/http package
 .play demo/webapp_simple.go
 navigate to [[http://localhost:8087/golang]]
 
 * Variant sample search demo
 - Code [[https://github.com/pschmidt-cloud/vasearch-golang]]
 - Utilizes lots of 3rd party libraries like Facebook Inject, olivere elasticsearch, Gorilla mux
+- Front end is bootstrap, jquery and RxJs
 - Connects to internal elasticsearch server that is indexed with root samples
 - Samples were indexed with Java code from 2015 hackathon [[https://github.com/pschmidt-cloud/vasearch]]
 - Obviously only demoable inside Qiagen network :)

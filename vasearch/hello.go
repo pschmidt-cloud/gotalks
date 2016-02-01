@@ -3,5 +3,9 @@ package main
 import "fmt"
 
 func main() {
-    fmt.Println("hello, world")
+	var hello string = "hello"
+	world := "world"
+
+    fmt.Printf("%v %v \n", hello, world)
+	fmt.Printf("%T %T", hello, world)
 }

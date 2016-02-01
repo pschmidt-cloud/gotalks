@@ -3,12 +3,13 @@ package main
 import (
 	"fmt"
 	"time"
+	"runtime"
 )
 
-func get(cs <- chan string) string {
+// START OMIT
+func get(cs <- chan string)  {
 	r := <-cs
 	fmt.Println("received from channel: ", r)
-	return r
 }
 
 func put(cs chan <- string) {
@@ -17,6 +18,7 @@ func put(cs chan <- string) {
 }
 
 func main() {
+	fmt.Println("#cpus= ",  runtime.NumCPU())
 	c := make(chan string)
 	go put(c)
 	go get(c)
@@ -24,3 +26,4 @@ func main() {
 	time.Sleep(1 * time.Second)
 	close(c)
 }
+//END OMIT
