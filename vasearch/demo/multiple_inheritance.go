@@ -1,24 +1,24 @@
 package main
 import "fmt"
 
-type Object1 struct{}
-type Object2 struct{}
+type Person struct{}
+type Employee struct{}
 
-type Object3 struct {
-	Object1
-	Object2
+type Manager struct {
+	Person
+	Employee
 }
 
-func (O Object1) func1() string {
-	return "doThis"
+func (p Person) name() string {
+	return "Hello, my name is ..."
 }
 
-func (O Object2) func2() string {
-	return "doThat"
+func (e Employee) numOfEmployees() int {
+	return 10
 }
 
 func main() {
-	obj3 := new(Object3)
-	fmt.Println(obj3.func1())
-	fmt.Println(obj3.func2())
+	mgr := new(Manager)
+	fmt.Println(mgr.name())
+	fmt.Println(mgr.numOfEmployees())
 }
