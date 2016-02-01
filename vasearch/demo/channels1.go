@@ -6,9 +6,7 @@ import (
 )
 
 func get(cs <- chan string) string {
-	var r string
-
-	r = <-cs
+	r := <-cs
 	fmt.Println("received from channel: ", r)
 	return r
 }

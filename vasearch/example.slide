@@ -6,18 +6,16 @@ Paul Schmidt
 Paul.Schmidt@Qiagen.com
 
 * Topics covered in this talk
-- Golang introduction
+- Golang lanuage introduction
 - Golang webapp support
-- 3rd party Elasticsearch client
 - Qiagen Variant Sample Search Demo using Golang as a webserver plus 3rd party Elasticsearch client
 - List of Resources
 
 * Introduction
-- First released in 2009 by Google [[https://tour.golang.org]] by Rob Pike, Russ Cox, et al
+- Version 1.0 released in 2012 by Google [[https://tour.golang.org]] by Rob Pike, Russ Cox, et al
 - Syntax similar to C
-- Convenience of dynamically typed language but statically typed
-- According to Rob Pike it compiles and runs faster than the Python Interpreter starts
 - Strong and easy concurrency support
+- According to Rob Pike it compiles and runs faster than the Python Interpreter starts
 - Object oriented but no such thing as a class
 
 * Simple Go program
@@ -33,11 +31,11 @@ Functions can return multiple results
 - Garbage Collected [[https://golang.org/doc/faq#garbage_collection]]
 - Pointers but no arithmetic make them safe
 - Support for closures
-- Lots of tools for profiling, analyzing, etc [[http://dominik.honnef.co/posts/2014/12/an_incomplete_list_of_go_tools/]]
+- Statically typed
 
 * Closure example
-A closure is a function that can be stored as a variable and can reference variables bound to it outside its body
-In this example each closure is bound to its own val variable
+A closure is a function value that can reference variables bound to it outside its body
+In this example each closure is bound to its own *val* variable
 .play demo/closures1.go
 
 * Approach to object oriented programming
@@ -46,17 +44,23 @@ In this example each closure is bound to its own val variable
 - You define methods on types. Any types can have methods even int, float, string, etc
 - Method is just a function but with a type receiver argument
 - Can pass by reference or by value
-- ​Functions can return multiple results
-- Functions are are values so they can be passed around like other values
+- Functions are values so they can be passed around as arguments
+- Supports interfaces and multiple inheritance
 
 * Method example
 .play demo/methods_value_receiver.go
 
-* Method using pass by reference example
-.play demo/methods_pointer_receiver.go
+* Interface example
+.play demo/interfaces.go  /START OMIT/,/END OMIT/
 
-* Custom Type example to redefine Abs function on a custom integer
-.play demo/custom_type.go
+#* Method using pass by reference example
+#.play demo/methods_pointer_receiver.go
+
+#* Function as a value example
+#.play demo/filter.go
+
+#* Custom Type example to redefine Abs function on a custom integer
+#.play demo/custom_type.go
 
 * Parallelism and Concurrency
 From Russ Cox's talk
@@ -84,6 +88,10 @@ navigate to [[http://localhost:8087/golang]]
 .image images/vasearch.png 600 800
 
 * Resources
+- Rob Pike's video on Golang [[https://www.youtube.com/watch?v=uQgWP7zM6mU]]
 - Rob Pike's talk on Golang [[http://web.stanford.edu/class/ee380/Abstracts/100428-pike-stanford.pdf]]
 - Russ Cox's talk on concurrency in Golang [[https://www.youtube.com/watch?v=ytEkHepK08c]] with a great example of a concurrent webcrawler
+- Get Started with Go [[https://www.youtube.com/watch?v=2KmHtgtEZ1s]]
+- Derek Banas' Go Programming [[https://www.youtube.com/watch?v=CF9S4QZuV30]]
 - Present golang tool [[https://godoc.org/golang.org/x/tools/present]]
+- Lots of tools for profiling, analyzing, etc [[http://dominik.honnef.co/posts/2014/12/an_incomplete_list_of_go_tools/]]
