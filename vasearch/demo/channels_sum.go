@@ -17,7 +17,7 @@ func sum(a []int, c chan int) {
 func main() {
 	fmt.Println("Number of CPUs: ", runtime.NumCPU())
 
-	a := []int{10, 4, 5, 20, 8, 2}
+	a := []int{10, 4, 6, 30, 8, 2}
 	c := make(chan int)
 	go sum(a[:len(a)/2], c)
 	go sum(a[len(a)/2:], c)

@@ -63,7 +63,7 @@ There isn't an implements declartion. You implement an interface by implementing
 #.play demo/custom_type.go
 
 * Multiple inheritance example
-.play demo/multiple_inheritance.go
+.play demo/multiple_inheritance.go /START OMIT/,/END OMIT/
 
 * Parallelism and Concurrency
 
@@ -105,7 +105,7 @@ In this example each closure is bound to its own *val* variable
 
 * Simple webapp using net/http package
 .play demo/webapp_simple.go
-navigate to [[http://localhost:8087/golang]]
+navigate to [[http://localhost:8087/golang]] only if running present locally
 
 * Serving static pages via Gorilla mux package
 - This snippet is not demoable but is used in Variant sample search demo

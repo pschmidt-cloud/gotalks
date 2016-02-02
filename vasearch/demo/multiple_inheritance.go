@@ -1,9 +1,11 @@
 package main
 import "fmt"
 
-type Person struct{}
+// START OMIT
+type Person struct{
+	age int
+}
 type Employee struct{}
-
 type Manager struct {
 	Person
 	Employee
@@ -12,7 +14,6 @@ type Manager struct {
 func (p Person) name() string {
 	return "Hello, my name is ..."
 }
-
 func (e Employee) numOfEmployees() int {
 	return 10
 }
@@ -21,4 +22,6 @@ func main() {
 	mgr := new(Manager)
 	fmt.Println(mgr.name())
 	fmt.Println(mgr.numOfEmployees())
+	mgr.age = 35
 }
+// END OMIT
