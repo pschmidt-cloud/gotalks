@@ -59,7 +59,7 @@ Paul.Schmidt@Qiagen.com
 - Method is just a function but with a type receiver argument
 - Can pass by reference or by value
 #- Functions are values so they can be passed around as arguments
-- Supports interfaces and multiple inheritance
+- Supports interfaces and multiple inheritance. Interfaces decouple implementation from definition package
 
 * Method example
 .play demo/methods_value_receiver.go
@@ -82,7 +82,7 @@ There isn't an implements declaration. You implement an interface by implementin
 
 * Parallelism and Concurrency
 
-- Parallelism - running multiple threads simultaneously.
+- Parallelism - running multiple threads simultaneously against different cores.
 - Goroutine is a lightweight thread
 - Concurrency - coordination of parallel computations. Channels
 - Channels block until the other side is ready allowing goroutines to synchronize without locks or condition variables.
