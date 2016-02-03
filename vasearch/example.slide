@@ -8,16 +8,24 @@ Paul.Schmidt@Qiagen.com
 * Topics covered in this talk
 - Golang language introduction
 - Golang features
-- Golang webserver support
+- Golang as a webserver (Full http protocol supported in standard library)
 - Qiagen Variant Sample Search Demo using Golang as a webserver plus 3rd party Elasticsearch client
 - List of Resources
 
 * Introduction
-- Started in 2009, Version 1.0 released in 2012 by Google by Rob Pike, Russ Cox, et al
+- Started in 2009, Version 1.0 released in 2012 by Google by Rob Pike, Ken Thompson, et al
 - Tour [[https://tour.golang.org]]
 - According to Rob Pike it compiles and runs faster than the Python Interpreter starts. He shows a demo of this in his talk [[https://www.youtube.com/watch?v=uQgWP7zM6mU]] at 15:38 mark [[https://youtu.be/uQgWP7zM6mU?t=938]]
 - Who is using Go? [[https://github.com/golang/go/wiki/GoUsers]] also [[https://blog.twitter.com/2015/handling-five-billion-sessions-a-day-in-real-time]]
 - Download and install [[https://golang.org/doc/install]]
+- Benchmarks [[http://mrcook.uk/golang-vs-java-performance]] and [[http://www.techempower.com/benchmarks/#section=data-r9&hw=i7&test=json]]
+
+* Why was Golang developed?
+- Quoted from Rob Pike
+  Go aims to combine the safety and performance of a
+  statically typed compiled language with the expressiveness
+  and convenience of a dynamically typed interpreted
+  language
 
 * Golang features
 - Syntax similar to C
@@ -139,3 +147,4 @@ navigate to [[http://localhost:8087/golang]] only if running present locally
 - Derek Banas' Go Programming [[https://www.youtube.com/watch?v=CF9S4QZuV30]]
 - Present golang tool [[https://godoc.org/golang.org/x/tools/present]]
 - Lots of tools for profiling, analyzing, etc [[http://dominik.honnef.co/posts/2014/12/an_incomplete_list_of_go_tools/]]
+
