@@ -7,7 +7,7 @@ type Person struct{
 }
 type Employee struct{}
 type Manager struct {
-	Person
+	Person   // embedded type. Manager IS A Person
 	Employee
 }
 

@@ -7,17 +7,24 @@ Paul.Schmidt@Qiagen.com
 
 * Topics covered in this talk
 - Golang language introduction
-- Golang webapp support
+- Golang features
+- Golang webserver support
 - Qiagen Variant Sample Search Demo using Golang as a webserver plus 3rd party Elasticsearch client
 - List of Resources
 
 * Introduction
-- Version 1.0 released in 2012 by Google [[https://tour.golang.org]] by Rob Pike, Russ Cox, et al
+- Started in 2009, Version 1.0 released in 2012 by Google by Rob Pike, Russ Cox, et al
+- Tour [[https://tour.golang.org]]
+- According to Rob Pike it compiles and runs faster than the Python Interpreter starts. He shows a demo of this in his talk [[https://www.youtube.com/watch?v=uQgWP7zM6mU]] at 15:38 mark [[https://youtu.be/uQgWP7zM6mU?t=938]]
+- Who is using Go? [[https://github.com/golang/go/wiki/GoUsers]] also [[https://blog.twitter.com/2015/handling-five-billion-sessions-a-day-in-real-time]]
+- Download and install [[https://golang.org/doc/install]]
+
+* Golang features
 - Syntax similar to C
 - Easy concurrency support
-- According to Rob Pike it compiles and runs faster than the Python Interpreter starts. He shows a demo of this in his talk [[https://www.youtube.com/watch?v=uQgWP7zM6mU]] at 15:38 mark [[https://youtu.be/uQgWP7zM6mU?t=938]]
 - Object oriented but no such thing as a class
 - Statically typed
+- Compiled
 
 * Simple Go program
 - Variable types can declared explicitly using var <varname> <type>
@@ -50,11 +57,11 @@ Paul.Schmidt@Qiagen.com
 .play demo/methods_value_receiver.go
 
 * Interface example
-There isn't an implements declartion. You implement an interface by implementing its methods
+There isn't an implements declaration. You implement an interface by implementing its methods
 .play demo/interfaces.go  /START OMIT/,/END OMIT/
 
-#* Method using pass by reference example
-#.play demo/methods_pointer_receiver.go
+* Method using pass by reference example
+.play demo/methods_pointer_receiver.go
 
 #* Function as a value example
 #.play demo/filter.go
@@ -62,8 +69,8 @@ There isn't an implements declartion. You implement an interface by implementing
 #* Custom Type example to redefine Abs function on a custom integer
 #.play demo/custom_type.go
 
-* Multiple inheritance example
-.play demo/multiple_inheritance.go /START OMIT/,/END OMIT/
+#* Multiple inheritance example
+#.play demo/multiple_inheritance.go /START OMIT/,/END OMIT/
 
 * Parallelism and Concurrency
 
@@ -72,7 +79,7 @@ There isn't an implements declartion. You implement an interface by implementing
 - Concurrency - coordination of parallel computations. Channels
 - Channels block until the other side is ready allowing goroutines to synchronize without locks or condition variables.
 - Can still use mutexes to synchronize access to shared data if needed
-- Concurrency is not Parallelism (see [[http://blog.golang.org/concurrency-is-not-parallelism]])
+- Concurrency is not Parallelism (see [[http://blog.golang.org/concurrency-is-not-parallelism]]) and [[http://talks.golang.org/2012/waza.slide#18]]
 #- Garbage Collection is critical for concurrency
 
 * Crude example
@@ -84,13 +91,13 @@ There isn't an implements declartion. You implement an interface by implementing
 * Advanced Topics
 - All necessary runtime components are compiled into the binary. No external dependencies
 - Garbage Collected [[https://golang.org/doc/faq#garbage_collection]] using Escape Analysis
+- Detailed explanation of Escape Analysis at [[http://dave.cheney.net/2014/06/07/five-things-that-make-go-fast]]
 - Pointers but no arithmetic make them safe
 - Support for closures
 
 * Garbage collection using Escape Analysis
 - if a reference to a value escapes the function where it is declared it is put on the heap
 - else it is put on the stack it where it will be freed immediately when the function returns
-- Very detiled explanation at [[http://dave.cheney.net/2014/06/07/five-things-that-make-go-fast]]
 .code demo/escape_analysis.go /START OMIT/,/END OMIT/
 
 * Closure example
@@ -114,7 +121,7 @@ navigate to [[http://localhost:8087/golang]] only if running present locally
 * Variant sample search demo
 - Code [[https://github.com/pschmidt-cloud/vasearch-golang]]
 - Utilizes lots of 3rd party libraries like Facebook Inject, olivere elasticsearch, Gorilla mux
-- Front end is bootstrap, jquery and RxJs
+- Front end is bootstrap and jquery
 - Connects to internal elasticsearch server that is indexed with root samples
 - Samples were indexed with Java code from 2015 hackathon [[https://github.com/pschmidt-cloud/vasearch]]
 - Searches as you type. No Search button.

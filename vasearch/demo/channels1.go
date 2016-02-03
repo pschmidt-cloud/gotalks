@@ -13,7 +13,7 @@ func get(cs <- chan string)  {
 }
 
 func put(cs chan <- string) {
-	val := "golang rules, java drools"
+	val := "hello, golang"
 	cs <- val
 }
 
