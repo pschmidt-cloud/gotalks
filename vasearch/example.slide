@@ -6,13 +6,13 @@ Paul Schmidt
 Paul.Schmidt@Qiagen.com
 
 * Topics covered in this talk
-- Golang language introduction
+- Golang introduction
 - Golang features
 - Golang as a webserver (Full http protocol supported in standard library)
 - Qiagen Variant Sample Search Demo using Golang as a webserver plus 3rd party Elasticsearch client
 - List of Resources
 
-* Introduction
+* Golang Introduction
 - Started in 2009, Version 1.0 released in 2012 by Google by Rob Pike, Ken Thompson, et al
 - Tour [[https://tour.golang.org]]
 - According to Rob Pike it compiles and runs faster than the Python Interpreter starts. He shows a demo of this in his talk [[https://www.youtube.com/watch?v=uQgWP7zM6mU]] at 15:38 mark [[https://youtu.be/uQgWP7zM6mU?t=938]]
@@ -147,4 +147,5 @@ navigate to [[http://localhost:8087/golang]] only if running present locally
 - Derek Banas' Go Programming [[https://www.youtube.com/watch?v=CF9S4QZuV30]]
 - Present golang tool [[https://godoc.org/golang.org/x/tools/present]]
 - Lots of tools for profiling, analyzing, etc [[http://dominik.honnef.co/posts/2014/12/an_incomplete_list_of_go_tools/]]
+- This presentation [[http://go-talks.appspot.com/github.com/pschmidt-cloud/gotalks/vasearch/example.slide#1]] but for some reason a few slides don't show code
 
